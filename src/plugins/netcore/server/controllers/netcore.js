@@ -6,15 +6,19 @@ module.exports = {
         //console.log(ctx.request.header);
         ctx.body = "AKADIGITAL"
 
+        var netcoreobject = ctx.request.body.data;
+        var converttostring = netcoreobject.replace(/'/g, "\"");
+        var result = JSON.parse(converttostring)
+
         const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
             data: {
-                Email: ctx.request.body.data.voolatechsmt[0].att_params.EMAIL,
+                Email: result.voolatechsmt[0].att_params.EMAIL,
                 Mobile: "",
-                Source: ctx.request.body.data.voolatechsmt[0].att_params.SOURCE,
-                Order_ID: ctx.request.body.data.voolatechsmt[0].att_params.ORDER_ID,
-                Full_Name: ctx.request.body.data.voolatechsmt[0].att_params.FULL_NAME,
-                Journey_Name: ctx.request.body.data.voolatechsmt[0].custom_params.Journey_Name,
-                List_ID: ctx.request.body.data.voolatechsmt[0].custom_params.List_ID,
+                Source: result.voolatechsmt[0].att_params.SOURCE,
+                Order_ID: result.voolatechsmt[0].att_params.ORDER_ID,
+                Full_Name: result.voolatechsmt[0].att_params.FULL_NAME,
+                Journey_Name: result.voolatechsmt[0].custom_params.Journey_Name,
+                List_ID: result.voolatechsmt[0].custom_params.List_ID,
                 Is_Get: false
             },
         });
