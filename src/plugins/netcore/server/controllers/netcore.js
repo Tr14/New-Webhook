@@ -2,7 +2,7 @@
 
 module.exports = {
     async webhook(ctx) {
-        console.log(ctx.request.body.data);
+        console.log(ctx.request.body.data.voolatechsmt[0]);
         //console.log(ctx.request.header);
         ctx.body = "AKADIGITAL"
 
