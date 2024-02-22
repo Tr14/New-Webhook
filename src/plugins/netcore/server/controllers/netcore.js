@@ -6,7 +6,7 @@ module.exports = {
         //console.log(ctx.request.header);
         ctx.body = "AKADIGITAL"
 
-        const entry = await strapi.db.query('api::netcore.netcorelead').create({
+        const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
             data: {
                 Email: ctx.request.body.data.voolatechsmt[0].att_params.EMAIL,
                 Mobile: "",
