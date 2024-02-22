@@ -40,6 +40,14 @@
             "type": "string",
             "maxLentgh": 100
         },
+        "Journey_Name": {
+            "type": "string",
+            "maxLentgh": 100
+        },
+        "List_ID": {
+            "type": "string",
+            "maxLentgh": 100
+        },
         "Is_Get": {
             "type": "boolean"
         }
