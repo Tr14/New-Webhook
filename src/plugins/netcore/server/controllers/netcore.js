@@ -12,8 +12,11 @@ module.exports = {
         } else if (typeof(ctx.request.body) == 'string'){
             console.log("String");
             var obj1 = JSON.parse(ctx.request.body);
+            console.log(obj1);
             var string1 = obj1.data.replace(/'/g, "\"");
+            console.log(string1);
             var result = JSON.parse(string1);
+            console.log(result);
 
             const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
                 data: {
