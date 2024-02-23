@@ -7,8 +7,10 @@ module.exports = {
         //console.log(ctx.request.header);
 
         if (Object.keys(ctx.request.body).length === 0) {
+            console.log("Null");
             ctx.body = "Body is null" 
         } else if (typeof(ctx.request.body) == 'string'){
+            console.log("String");
             var obj1 = JSON.parse(ctx.request.body);
             var string1 = obj1.data.replace(/'/g, "\"");
             var result = JSON.parse(string1);
@@ -28,6 +30,7 @@ module.exports = {
             ctx.body = "Receive string data from body"
         } 
         else {
+            console.log("Object");
             var string1 = ctx.request.body.data.replace(/'/g, "\"");
             var result = JSON.parse(string1);
 
