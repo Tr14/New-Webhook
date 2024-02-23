@@ -5,7 +5,9 @@ module.exports = {
         console.log(ctx.request.body);
         //console.log(ctx.request.header);
 
-        if (ctx.request.body != null) {
+        if (Object.keys(ctx.request.body).length === 0) {
+            ctx.body = "Body is null" 
+        } else {
             let data_body = ctx.request.body.data;
             let result = JSON.parse(data_body);
 
@@ -22,8 +24,6 @@ module.exports = {
                 },
             });
             ctx.body = "Receive data from body"
-        } else {
-            ctx.body = "Body is null"
         }   
     }
 };
