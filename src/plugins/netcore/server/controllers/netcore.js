@@ -3,6 +3,7 @@
 module.exports = {
     async webhook(ctx) {
         console.log(ctx.request.body);
+        console.log(typeof(ctx.request.body));
         //console.log(ctx.request.header);
 
         if (Object.keys(ctx.request.body).length === 0) {
