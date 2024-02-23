@@ -18,6 +18,14 @@ module.exports = {
             config: {
                 policies: []
             }
+        },
+        {
+            method: "GET",
+            path: "/test",
+            handler: "Netcore.testAPI",
+            config: {
+                policies: []
+            }
         }
     ]
 }
