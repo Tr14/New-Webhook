@@ -3,15 +3,6 @@
 module.exports = {
     async webhook(ctx) {
         console.log(ctx.request.body);
-        console.log(typeof(ctx.request.body));
-        //console.log(ctx.request.header);
-
-        if (Object.keys(ctx.request.body).length === 0) {
-            console.log("Null");
-            ctx.body = "Body is null" 
-        }
-        else {
-            console.log("Object");
             /*
             var string1 = ctx.request.body.data.replace(/'/g, "\"");
             var result = JSON.parse(string1);
@@ -29,7 +20,6 @@ module.exports = {
                 },
             });
             ctx.body = "Receive object data from body"
-            */
-        }   
+            */    
     }
 };
