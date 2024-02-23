@@ -10,6 +10,14 @@ module.exports = {
             config: {
                 policies: []
             }
+        },
+        {
+            method: "POST",
+            path: "/test",
+            handler: "Netcore.testAPI",
+            config: {
+                policies: []
+            }
         }
     ]
 }

@@ -21,5 +21,8 @@ module.exports = {
             });
             ctx.body = "Receive object data from body"
             */    
+    },
+    async testAPI(ctx) {
+        console.log(ctx.request.body);
     }
 };
