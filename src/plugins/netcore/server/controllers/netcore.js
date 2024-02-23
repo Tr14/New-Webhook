@@ -24,5 +24,6 @@ module.exports = {
     },
     async testAPI(ctx) {
         console.log(ctx.request.body);
+        ctx.body = "Post successfully"
     }
 };
