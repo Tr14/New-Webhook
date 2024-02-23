@@ -23,7 +23,16 @@ module.exports = {
             */    
     },
     async testAPI(ctx) {
-        console.log(ctx.request.body);
+        var netcoreobject = ctx.request.body;
+        console.log(netcoreobject);
+        console.log(netcoreobject.data);
+
+        var netcorestring = netcoreobject.data.replace(/'/g, "\"");
+        console.log(netcorestring);
+
+        var netcorejson = JSON.parse(netcorestring)
+        console.log(netcorejson);
+        
         ctx.body = "Post successfully"
     }
 };
