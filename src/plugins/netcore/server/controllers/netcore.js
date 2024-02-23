@@ -25,14 +25,24 @@ module.exports = {
     async testAPI(ctx) {
         var netcoreobject = ctx.request.body;
         console.log(netcoreobject);
-        console.log(netcoreobject.data);
 
         var netcorestring = netcoreobject.data.replace(/'/g, "\"");
-        console.log(netcorestring);
 
         var netcorejson = JSON.parse(netcorestring)
-        console.log(netcorejson);
-        
+
+        const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
+            data: {
+                Email: netcorejson.voolatechsmt[0].att_params.EMAIL,
+                Mobile: "",
+                Source: netcorejson.voolatechsmt[0].att_params.SOURCE,
+                Order_ID: netcorejson.voolatechsmt[0].att_params.ORDER_ID,
+                Full_Name: netcorejson.voolatechsmt[0].att_params.FULL_NAME,
+                Journey_Name: netcorejson.voolatechsmt[0].custom_params.Journey_Name,
+                List_ID: netcorejson.voolatechsmt[0].custom_params.List_ID,
+                Is_Get: false
+            },
+        });
+
         ctx.body = "Post successfully"
     }
 };
