@@ -8,8 +8,9 @@ module.exports = {
         if (Object.keys(ctx.request.body).length === 0) {
             ctx.body = "Body is null" 
         } else if (typeof(ctx.request.body) == 'string'){
-            var obj1 = ctx.request.body.replace(/'/g, "\"");
-            var result = JSON.parse(obj1);
+            var obj1 = JSON.parse(ctx.request.body);
+            var string1 = obj1.data.replace(/'/g, "\"");
+            var result = JSON.parse(string1);
 
             const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
                 data: {
@@ -26,8 +27,8 @@ module.exports = {
             ctx.body = "Receive string data from body"
         } 
         else {
-            var data_body = ctx.request.body.data;
-            var result = JSON.parse(data_body);
+            var string1 = ctx.request.body.data.replace(/'/g, "\"");
+            var result = JSON.parse(string1);
 
             const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
                 data: {
