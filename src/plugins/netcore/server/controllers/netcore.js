@@ -6,9 +6,8 @@ module.exports = {
         //console.log(ctx.request.header);
         ctx.body = "AKADIGITAL"
 
-        var netcoreobject = ctx.request.body.data;
-        var converttostring = netcoreobject.replace(/'/g, "\"");
-        var result = JSON.parse(converttostring)
+        let data_body = ctx.request.body.data;
+        let result = JSON.parse(data_body);
 
         const entry = await strapi.db.query('plugin::netcore.netcorelead').create({
             data: {
